@@ -1,7 +1,7 @@
 function Header() {
 	return <div>
 		<img 
-			src="./src/assets/headshot.png" 
+			src="/headshot.png" 
 			alt="Myrrh Khan's face"
 			width="175"
 		/>
