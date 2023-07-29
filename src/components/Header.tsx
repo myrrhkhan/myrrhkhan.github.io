@@ -6,7 +6,7 @@ function Header() {
       <div className="image">
         <img
           className="Header"
-          src="/headshot.png"
+          src="./headshot.png"
           alt="Myrrh Khan's face"
           width="175"
         />
