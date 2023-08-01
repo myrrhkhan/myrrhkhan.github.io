@@ -1,7 +1,7 @@
 function Intro() {
 	return (
 		<>
-		<h1>Welcome to my site</h1>
+			<h1 className="text-primary-blue text-center text-4xl">Welcome to my site</h1>
 		</>
 	);
 }

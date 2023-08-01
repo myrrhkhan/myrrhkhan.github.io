@@ -1,7 +1,7 @@
 function Header() {
   return (
     <>
-      <h1 className="text-center text-6xl text-gray-700 font-mono">Myrrh Khan</h1>
+      <h1 className="text-center text-6xl text-primary-charcoal font-mono bg-primary-blue">Myrrh Khan</h1>
     </>
   );
 }
