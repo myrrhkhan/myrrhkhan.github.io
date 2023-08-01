@@ -3,7 +3,7 @@ import '../index.css';
 function Intro() {
 	return (
 		<div style={{ height: '500px' }} className='flex flex-row'>
-			<div className='hidden md:block bg-headshot bg-contain'>
+			<div className='hidden sm:block bg-headshot bg-contain'>
 				<img
 							src="./headshot.png"
 							alt="Myrrh Khan's face"
