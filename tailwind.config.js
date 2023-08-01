@@ -21,7 +21,7 @@ export default {
         'paragraph': 'Khula',
       },
       backgroundImage: {
-        'headshot': "url('/public/headshot.png')",
+        'headshot': "url('headshot.png')",
       },
     },
   },

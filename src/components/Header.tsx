@@ -7,8 +7,9 @@ function Header() {
 			justify-center
 			items-center
 			header bg-gradient-to-r 
-			from-primary-persian-green 
+			from-primary-persian-green
 			to-primary-sandy-brown"
+			style={{ height: '90px' }}
 		>
 			<h1 className="
 				text-center
