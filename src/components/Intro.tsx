@@ -3,11 +3,13 @@ import '../index.css';
 function Intro() {
 	return (
 		<div style={{ height: '500px' }} className='flex flex-row'>
-			<img
-						src="./headshot.png"
-						alt="Myrrh Khan's face"
-						max-width="100%"
-					/>
+			<div className='hidden md:block bg-headshot bg-contain'>
+				<img
+							src="./headshot.png"
+							alt="Myrrh Khan's face"
+							max-width="100%"
+				/>
+			</div>
 			<div className='bg-primary-saffron w-full'>
 				<h1 className="
 					text-primary-persian-green
