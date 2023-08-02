@@ -1,19 +1,16 @@
-import '../index.css'
-
-function Header() {
+export default function Header() {
 	return (
 		<div className="
 			flex
 			justify-center
 			items-center
-			header bg-gradient-to-r 
-			from-primary-persian-green
-			to-primary-sandy-brown"
+			header bg-primary-persian-green"
 			style={{ height: '90px' }}
 		>
 			<h1 className="
 				text-center
-				text-6xl
+				sm:text-4xl
+				text-xl
 				text-primary-charcoal 
 				font-header">
 					Myrrh Khan
@@ -21,14 +18,3 @@ function Header() {
 		</div>
 	);
 }
-
-export default Header;
-
-/**
- *           <img
-						src="./headshot.png"
-						alt="Myrrh Khan's face"
-						width="100"
-					/>
-					#608078
- */

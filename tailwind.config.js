@@ -20,6 +20,17 @@ export default {
         'subheader': 'Roboto',
         'paragraph': 'Khula',
       },
+      fontSize: {
+        small: '1.25rem',
+        base: '1.5rem',
+        large: '1.75rem',
+        xl: '2rem',
+        '2xl': '2.2rem',
+        '3xl': '3rem',
+        '4xl': '4rem',
+        '5xl': '5rem',
+        '6xl': '6rem'
+      },
       backgroundImage: {
         'headshot': "url('headshot.png')",
       },
