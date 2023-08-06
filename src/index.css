@@ -2,3 +2,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.intro-bg {
+	background-repeat: no-repeat;
+	background-size: contain;
+  opacity: 0.6;
+  position: absolute;
+  width: 100%;
+	height: auto;
+  /* height: 0;
+	padding-top: 75%; */
+}
