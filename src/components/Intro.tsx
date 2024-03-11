@@ -1,47 +1,25 @@
 import "../index.css";
+import "./Intro.css";
 
 export default function Intro() {
   return (
-    <div style={{ height: "750px" }} className='flex flex-row bg-contain'>
-      {/* <div className='hidden sm:block' style={{ height: "600px" }}>
-        <img
-          src='./headshot.png'
-          alt="Myrrh Khan's face"
-          className='object-scale-down top-left'
-          style={{ height: "600px" }}
-        />
-      </div> */}
-      <div
-        className='
-				flex
-				flex-col
-        overflow-hidden relative'
-      >
-        <div className=''>
-          <img className='intro-bg' src='headshot.png' alt='my face' />
-        </div>
-        <div className='relative'>
-          <h1
-            className='
-                    text-primary-persian-green
-                    text-center
-                    text-3xl
-                    font-subheader mt-20'
-          >
-            Hi
-          </h1>
-          <p className='font-paragraph text-center text-small font-bold text-primary-charcoal pl-20 pr-20'>
-            I'm Myrrh (he/him/his) and I am a Computer Science student at
-            Worcester Polytechnic Institute pursuing a robotics engineering
-            minor, and I will graduate in late 2025 or spring 2026.
-          </p>
-          <p className='font-paragraph text-center text-small font-bold text-primary-charcoal pl-20 pr-20'>
-            I have been programming since 2019, when I joined my high school
-            robotics team. I have since programmed a variety of projects, from
-            machine learning models to systems programming to web development.
-          </p>
-        </div>
+    <div className="Intro">
+      <div className="image-container"></div>
+      <div className="text-overlay">
+        <h1 className="">Hey!</h1>
+        <p className="">
+          Welcome to my personal site! I’m Myrrh Khan (he/him), and I’m
+          currently studying CS at WPI with a minor in Robotics Engineering, and
+          will graduate in May 2025.
+        </p>
+        <p className="">
+          This site is a work in progress, and it’s something I’ll work on often
+          as I have other projects, but I still hope you enjoy :)
+        </p>
       </div>
     </div>
   );
 }
+
+/*         <img id="bg-img" src="vert-headshot.png" alt="Myrrh Khan's face" />
+ */
