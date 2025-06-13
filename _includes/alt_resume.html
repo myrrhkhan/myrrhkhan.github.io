@@ -13,6 +13,7 @@
     document.body.removeChild(a);
   }
 </script>
+
 <style>
   .resume_box {
     display: flex;
@@ -20,18 +21,127 @@
     justify-content: center;
     align-items: center;
   }
+
+  .project_box {
+    margin-top: 40px;
+    padding: 20px;
+    width: 80%;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .project_box h2 {
+    margin-bottom: 10px;
+  }
+
+  .project_box img,
+  .project_box iframe {
+    width: 100%;
+    border-radius: 8px;
+    margin: 10px 0;
+  }
+
+  .project_box a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #0077b5;
+    font-weight: bold;
+  }
 </style>
+
 <div style="background-color: var(--tf-page-bg-color)" class="bg-gradient py-3">
   <div class="resume_box">
+    <!-- UAV-UGV Project Block -->
+    <div class="project_box">
+      <h2>UAV-UGV Project</h2>
+      <p>
+        Completed with 3 other students as part of WPI's year-long Major
+        Qualifying Project. Sponsored by Draper.
+      </p>
+      <p>
+        We were tasked with designing and creating a system to land UAVs onto
+        UGVs. Such systems are ideal for search-and-rescue operations, mapping,
+        and other crucial operations, and knew that our project had the
+        potential to save lives. In our background research, we found that many
+        existing solutions are overcomplicated and unreliable, so we designed a
+        passive, 3D-printed landing mechanism, ensuring the UAV could land in
+        any orientation and that costs were low.
+      </p>
+      <p>
+        I enabled communication between the UAV and the UGV via two ESP-32
+        microcontrollers and WiFi. By creating an object-oriented codebase in
+        C++, I ensured that it would be easy to change state machine
+        transitions, allowing future projects to change landing detection
+        methods with ease.
+      </p>
+      <p>
+        We presented our project at Draper's annual Capstone Symposium and won
+        first place. We experienced many obstacles, including building the UAV,
+        ensuring communication was synced properly, and designing the landing
+        mechanism. We later learned that the project almost didn't happen
+        because of concerns that it would be too difficult for students, so to
+        overcome these hurdles and win first place felt incredibly
+        accomplishing.
+      </p>
+      <img src="/img/uav-ugv/uav-ugv.jpg" alt="UAV-UGV Project Image" />
+      <a
+        href="https://www.linkedin.com/posts/michael-j-monda_i-am-excited-to-announce-that-my-senior-capstone-activity-7320453689029054465-nmsV/"
+        target="_blank"
+      >
+        View on LinkedIn
+      </a>
+    </div>
+
+    <!-- Violet Project Block -->
+    <div class="project_box">
+      <h2>Violet: Handwriting-to-Text Converter</h2>
+      <p>
+        Violet is a handwriting-to-text converter that won an Honorable Mention
+        for GoatHacks 2024. Tired of typing out my notes, I wanted to start
+        handwriting them, as handwriting is better for memory. However, I still
+        wanted electronic versions available, and the only handwriting-to-text
+        solution I could find was to switch note-taking apps, or using my hefty
+        Windows tablet that could fry an egg as soon as you heated it up. There
+        was no universal option for all operating systems, so Violet was born.
+      </p>
+      <p>
+        Though I had zero experience with any of these languages and frameworks
+        I used, I decided that building Violet would be the perfect opportunity
+        to learn them. Svelte is a newer framework that offers a compiler,
+        allowing for significantly less boilerplate and easier-to-read syntax
+        compared to React, which did not have a compiler at the time. Rust is
+        incredibly memory-safe compared to C/C++, so I wanted to learn it as I
+        anticipate more and more companies will adopt it. Tauri is an
+        alternative to Electron, a framework for making desktop apps using a
+        stripped Chromium browser, makiing it easy to use the same frontend code
+        for desktop apps and websites. Tauri uses a native webview rather than a
+        Chromium browser, making boot times quicker.
+      </p>
+      <p>
+        The entire project took me two days to complete, winning me an Honorable
+        Mention (and being the only winner who worked solo). I won a 12-pack of
+        Celsius energy drinks, which I happily distributed to random people.
+      </p>
+      <iframe
+        width="100%"
+        height="450"
+        src="https://www.youtube.com/embed/qszi0y9-e5w"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+      <a href="https://devpost.com/software/violet-yrafct" target="_blank">
+        View on Devpost
+      </a>
+    </div>
+
     <button type="submit" onclick="download('resume.pdf')" width="40%">
       Download!
     </button>
-    <!-- <object data="resume.pdf" type="application/pdf" width="80%" height="1000px">
-        alt : <a href="resume.pdf">resume.pdf</a>
-    </object> -->
-    <iframe width="80%" height="1000px" src="../resume.pdf"
-      >Failed to load resume - download
-      <a href="/resume.pdf" target="_blank">here</a></iframe
-    >
+
+    <iframe width="80%" height="1000px" src="../resume.pdf">
+      Failed to load resume - download
+      <a href="/resume.pdf" target="_blank">here</a>
+    </iframe>
   </div>
 </div>
