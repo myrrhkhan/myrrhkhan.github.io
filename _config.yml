@@ -1,10 +1,10 @@
 # REQUIRED CHANGES
 # Edit next line to provide your own name.
-title: Robotics Prototyping Club
+title: Myrrh's Portfolio Site
 # Edit next line, replacing 'wpi-rpc' with your github username
-url: "https://wpi-rpc.github.io"
+url: "https://myrrhkhan.github.io"
 # Edit next line so that baseurl is "" if your repo is <username>.github.io
-# or "/portfolio" if you have something else on your github pages / want the url to be url/baseurl 
+# or "/portfolio" if you have something else on your github pages / want the url to be url/baseurl
 baseurl: ""
 
 # OPTIONAL CHANGES

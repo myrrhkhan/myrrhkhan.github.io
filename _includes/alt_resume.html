@@ -1,0 +1,37 @@
+<!-- --- -->
+<!-- title: Resume -->
+<!-- layout: home -->
+<!-- --- -->
+
+<script>
+  function download(url) {
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = url.split("/").pop();
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+</script>
+<style>
+  .resume_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+<div style="background-color: var(--tf-page-bg-color)" class="bg-gradient py-3">
+  <div class="resume_box">
+    <button type="submit" onclick="download('resume.pdf')" width="40%">
+      Download!
+    </button>
+    <!-- <object data="resume.pdf" type="application/pdf" width="80%" height="1000px">
+        alt : <a href="resume.pdf">resume.pdf</a>
+    </object> -->
+    <iframe width="80%" height="1000px" src="../resume.pdf"
+      >Failed to load resume - download
+      <a href="/resume.pdf" target="_blank">here</a></iframe
+    >
+  </div>
+</div>
