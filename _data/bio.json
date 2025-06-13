@@ -1,49 +1,76 @@
 {
   "basics": {
-    "name": "Robotics Prototyping Club",
-    "label": "WPI Student Organization",
-    "picture": "https://github.com/wpi-rpc.png",
+    "name": "Myrrh Khan",
+    "label": "WPI CS Alum | Results-driven. Collaborative. Always curious.",
+    "picture": "../img/headshot.JPG",
     "email": "rpc-exec@wpi.edu",
     "phone": "",
-    "website": "https://wpi-rpc.github.io",
-    "summary": "We're a group of students from Worcester Polytechnic Institute (WPI), Massachusetts, that put our maker skills towards specialized robotics projects! All in the name of fostering a community around clean hobbyist robotics done right.",
-    "location": { "address": "100 Institute Rd", "postalCode": "01609", "city": "Worcester", "countryCode": "USA", "region": "Massachusetts" },
+    "website": "https://myrrhkhan.github.io",
+    "summary": "I'm a software engineer with experience in robotics, machine learning, full-stack development, and Android development. Driven by curiosity and a desire to push boundaries, I strive to collaborate with others to create solutions to real-world problems, creating award-winning products that help everyone.",
+    "location": {
+      "address": "",
+      "postalCode": "01609",
+      "city": "Worcester",
+      "countryCode": "USA",
+      "region": "Massachusetts"
+    },
     "profiles": [
-      { "network": "github", "username": "wpi-rpc", "url": "https://github.com/wpi-rpc" },
-      { "network": "mywpi", "username": "Robotics Prototyping Club", "url": "https://mywpi.wpi.edu/RPC/club_signup" },
-      { "network": "instagram", "username": "wpi_rpc", "url": "https://instagram.com/wpi_rpc/" }
+      {
+        "network": "github",
+        "username": "myrrhkhan",
+        "url": "https://github.com/myrrhkhan"
+      },
+      {
+        "network": "linkedin",
+        "username": "Myrrh Khan",
+        "url": "http://linkedin.com/in/myrrh-khan"
+      }
     ],
     "unused-profiles": [
-      { "network": "linkedin", "username": "N/A", "url": "http://linkedin.com/in/changeme" },
-      { "network": "twitter", "username": "N/A", "url": "http://twitter.com/changeme" }
+      {
+        "network": "twitter",
+        "username": "N/A",
+        "url": "http://twitter.com/changeme"
+      }
     ]
   },
   "interests": [
-    { "name": "Robotics" },
-    { "name": "3D Printing" },
+    { "name": "Aerial Robotics" },
     { "name": "Embedded Computing" },
     { "name": "Computer Vision" },
-    { "name": "Machine Learning" }
+    { "name": "Machine Learning" },
+    { "name": "Backend Development" },
+    { "name": "Android Development" }
   ],
   "skills": [
     {
       "name": "Languages and Frameworks",
-      "keywords": [ "C", "C++", "Java", "Python", "Javascript" ]
+      "keywords": [
+        "C",
+        "C++",
+        "Java",
+        "Kotlin",
+        "Python",
+        "Rust",
+        "Javascript/TypeScript",
+        "React",
+        "Svelte",
+        "SQL (Oracle, SQLite)"
+      ]
     },
     {
       "name": "Toolsets/OS",
-      "keywords": [ "Ubuntu", "Git/GitHub", "gcc/g++", "TI LaunchPad" ]
+      "keywords": ["Docker", "AWS", "Ubuntu", "Git/GitHub", "gcc/g++", "gdb"]
     }
   ],
   "education": [
     {
       "institution": "Worcester Polytechnic Institute, Worcester, MA",
-      "area": "Robotics Engineering (expected Spring, 2025)",
+      "area": "Computer Science + Robotics Engineering Minor",
       "studyType": "B.S.",
-      "startDate": "2021-08-24",
-      "endDate": "Present",
-      "courses": [
-      ]
+      "startDate": "2022-08-24",
+      "endDate": "2025-05-16",
+      "courses": []
     }
   ],
   "work": [
