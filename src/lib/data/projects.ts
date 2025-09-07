@@ -25,20 +25,48 @@ export const projects: ProjectData[] = [
 			'Developed C++ firmware for ESP-32 microcontrollers with integrated gyroscope sensors via PlatformIO. Designed system with 4-person team to reliably and autonomously land and charge a drone onto a ground vehicle via AprilTags. Won 1st place at Draper Capstone Symposium and reached finals at WPI Project Presentation Showcase.',
 		images: [
 			{
-				src: '/images/projects/draper/drone-landing-sequence.jpg',
-				alt: 'Drone approaching UGV landing platform with AprilTag visible'
+				src: '/images/uav-ugv/draperAward.jpg',
+				alt: "Our poster and UAV-UGV system after presenting at Draper's office in Cambridge"
 			},
 			{
-				src: '/images/projects/draper/esp32-circuit.jpg',
-				alt: 'ESP-32 microcontroller with gyroscope sensors and wiring'
+				src: '/images/uav-ugv/DSC_0029.JPG',
+				alt: 'Our UAV flying, underside'
 			},
 			{
-				src: '/images/projects/draper/team-presentation.jpg',
-				alt: 'Team presenting at Draper Capstone Symposium'
+				src: '/images/uav-ugv/DSC_0038.JPG',
+				alt: 'UAV flying in woods'
 			},
 			{
-				src: '/images/projects/draper/landing-mechanism.jpg',
-				alt: '3D-printed landing mechanism on ground vehicle'
+				src: '/images/uav-ugv/DSC_0040.JPG',
+				alt: 'UAV landing onto UGV'
+			},
+			{
+				src: '/images/uav-ugv/DSC_0051.JPG',
+				alt: 'close-up of UAV flying in woods, with AprilTag visible'
+			},
+			{
+				src: '/images/uav-ugv/DSC_0070-2.JPG',
+				alt: 'UAV on top of UGV, on top of some rocks'
+			},
+			{
+				src: '/images/uav-ugv/DSC_0070.JPG',
+				alt: 'UAV against white background'
+			},
+			{
+				src: '/images/uav-ugv/DSC_0076.JPG',
+				alt: 'UGV and AprilTag on white background'
+			},
+			{
+				src: '/images/uav-ugv/DSC_0093.JPG',
+				alt: 'UAV flying in front of stones'
+			},
+			{
+				src: '/images/uav-ugv/DSC_0097.JPG',
+				alt: 'UAV flying in front of drainage pipe'
+			},
+			{
+				src: '/images/uav-ugv/DSC_0114.JPG',
+				alt: 'UAV perched atop a rock'
 			}
 		],
 		labels: ['C++', 'ESP-32', 'PlatformIO', 'Computer Vision', 'AprilTags', 'WiFi Communication'],
@@ -53,16 +81,20 @@ export const projects: ProjectData[] = [
 			'Built complete handwriting recognition system using Rust backend, React/Svelte frontend, Python machine learning pipeline with TensorFlow, deployed on AWS with GitHub Actions CI/CD.',
 		images: [
 			{
-				src: '/images/projects/violet/app-interface.jpg',
+				src: '/images/violet/violet-demo.png',
 				alt: 'Violet app showing handwriting input and converted text output'
 			},
 			{
-				src: '/images/projects/violet/architecture-diagram.png',
-				alt: 'System architecture showing Rust backend, ML pipeline, and frontend'
+				src: '/images/violet/hackathon-sticker.jpg',
+				alt: 'Photo from my first night at the hackathon'
 			},
 			{
-				src: '/images/projects/violet/hackathon-demo.jpg',
-				alt: 'Team demonstrating Violet at GoatHacks 2024'
+				src: '/images/violet/rust-code.jpg',
+				alt: 'Some of the code I was writing during the hackathon'
+			},
+			{
+				src: '/images/violet/violet-demo.jpg',
+				alt: 'Violet app showing handwriting input and converted text output'
 			}
 		],
 		labels: ['Rust', 'React', 'SvelteJS', 'Python', 'TensorFlow', 'AWS', 'GitHub Actions'],

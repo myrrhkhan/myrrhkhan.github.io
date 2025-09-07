@@ -23,6 +23,17 @@
 	}
 
 	let { project }: Props = $props();
+
+	// Mobile image navigation state
+	let currentImageIndex = 0;
+
+	function nextImage() {
+		currentImageIndex = (currentImageIndex + 1) % project.images.length;
+	}
+
+	function prevImage() {
+		currentImageIndex = currentImageIndex === 0 ? project.images.length - 1 : currentImageIndex - 1;
+	}
 </script>
 
 <!-- individual card -->
@@ -38,5 +49,36 @@
 		<a href={project.projectUrl}>Project Link</a>
 	</div>
 	<!-- images section -->
-	<div></div>
+	<div>
+		{#if project.images.length > 0}
+			<!-- Mobile: Single image with navigation -->
+			<div class="mobile-image-container">
+				<img
+					src={project.images[currentImageIndex].src}
+					alt={project.images[currentImageIndex].alt}
+				/>
+
+				<!-- Navigation arrows (only visible on mobile) -->
+				<button onclick={prevImage}>←</button>
+				<button onclick={nextImage}>→</button>
+
+				<!-- Dots indicator -->
+				<div>
+					{#each project.images as _, index}
+						<button
+							class:active={index === currentImageIndex}
+							onclick={() => (currentImageIndex = index)}>•</button
+						>
+					{/each}
+				</div>
+			</div>
+
+			<!-- Desktop: All images in masonry -->
+			<div class="desktop-masonry">
+				{#each project.images as image}
+					<img src={image.src} alt={image.alt} />
+				{/each}
+			</div>
+		{/if}
+	</div>
 </div>
