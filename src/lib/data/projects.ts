@@ -91,10 +91,6 @@ export const projects: ProjectData[] = [
 			{
 				src: '/images/violet/rust-code.jpg',
 				alt: 'Some of the code I was writing during the hackathon'
-			},
-			{
-				src: '/images/violet/violet-demo.jpg',
-				alt: 'Violet app showing handwriting input and converted text output'
 			}
 		],
 		labels: ['Rust', 'React', 'SvelteJS', 'Python', 'TensorFlow', 'AWS', 'GitHub Actions'],

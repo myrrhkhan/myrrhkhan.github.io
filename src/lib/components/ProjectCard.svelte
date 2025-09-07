@@ -25,7 +25,7 @@
 	let { project }: Props = $props();
 
 	// Mobile image navigation state
-	let currentImageIndex = 0;
+	let currentImageIndex = $state(0);
 
 	function nextImage() {
 		currentImageIndex = (currentImageIndex + 1) % project.images.length;
@@ -37,17 +37,7 @@
 </script>
 
 <!-- individual card -->
-<div>
-	<!-- content section -->
-	<div>
-		<h1>{project.title}</h1>
-		<h3>{project.date}</h3>
-		<p>{project.blurb}</p>
-		<!-- dropdown menu with summary -->
-		<!-- labels -->
-		<div></div>
-		<a href={project.projectUrl}>Project Link</a>
-	</div>
+<div class="scroll-snap-align-start relative min-h-screen">
 	<!-- images section -->
 	<div>
 		{#if project.images.length > 0}
@@ -81,6 +71,22 @@
 			</div>
 		{/if}
 	</div>
+	<!-- content section -->
+	<div class="grid lg:grid-cols-5 lg:gap-8">
+		<h1 class="text-2xl font-medium text-gray-900">{project.title}</h1>
+		<h3 class="mb-4 text-sm text-gray-500">{project.date}</h3>
+		<p class="mb-6 text-lg text-gray-700">{project.blurb}</p>
+		<!-- dropdown menu with summary -->
+		<!-- labels -->
+		<div class="mb-6 flex flex-wrap gap-2">
+			{#each project.labels as label}
+				<p class="justify-center rounded-full bg-gray-100 px-2 py-1 text-xs">{label}</p>
+			{/each}
+		</div>
+		{#if typeof project.projectUrl !== 'undefined'}
+			<a href={project.projectUrl}>Project Link</a>
+		{/if}
+	</div>
 </div>
 
 <style>
@@ -91,6 +97,13 @@
 
 	.mobile-image-container {
 		position: relative;
+		/* 
+			this means it starts in its normal position, 
+			then additional attributes like, left, etc. 
+			move it from that position
+			we're not doing anything with that though so idk why
+		 */
+		/* equivalent of \n: newline */
 		display: block;
 	}
 
@@ -99,40 +112,11 @@
 		height: auto;
 		aspect-ratio: 4/3;
 		object-fit: cover;
-		border-radius: 0.5rem;
-	}
-
-	/* Navigation arrows for mobile */
-	.mobile-image-container button {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		background: rgba(0, 0, 0, 0.5);
-		color: white;
-		border: none;
-		padding: 0.5rem;
-		border-radius: 50%;
-		font-size: 1.125rem;
-		cursor: pointer;
-	}
-
-	.mobile-image-container button:first-of-type {
-		left: 1rem;
-	}
-
-	.mobile-image-container button:nth-of-type(2) {
-		right: 1rem;
-	}
-
-	/* Dots indicator */
-	.mobile-image-container > div:last-child {
-		display: flex;
-		justify-content: center;
-		gap: 0.5rem;
-		margin-top: 1rem;
+		border-radius: 0.5rem; /* rounded corners */
 	}
 
 	.mobile-image-container > div:last-child button {
+		/* buttons in last div */
 		position: static;
 		transform: none;
 		background: rgba(0, 0, 0, 0.3);
@@ -152,17 +136,17 @@
 		.mobile-image-container {
 			display: none;
 		}
-
 		.desktop-masonry {
-			display: block;
-			columns: 2;
+			display: block; /* newline */
+			columns: 4;
 			column-gap: 1rem;
+			/* column-gap: 0; */
 		}
 
 		.desktop-masonry img {
 			width: 100%;
 			height: auto;
-			break-inside: avoid;
+			break-inside: avoid; /* avoid page break */
 			margin-bottom: 1rem;
 			border-radius: 0.5rem;
 			object-fit: cover;

@@ -16,12 +16,8 @@
 
 <div id="projects">
 	<div>
-		<div>
-			<div>
-				<h1>Projects</h1>
-			</div>
-		</div>
-		<div>
+		<h1>Projects</h1>
+		<div class="h-screen overflow-y-scroll">
 			{#each displayedProjects as project}
 				<ProjectCard {project} />
 			{/each}
