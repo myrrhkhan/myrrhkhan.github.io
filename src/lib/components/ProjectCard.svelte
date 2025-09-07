@@ -82,3 +82,90 @@
 		{/if}
 	</div>
 </div>
+
+<style>
+	/* Mobile (default) styles */
+	.desktop-masonry {
+		display: none;
+	}
+
+	.mobile-image-container {
+		position: relative;
+		display: block;
+	}
+
+	.mobile-image-container img {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 4/3;
+		object-fit: cover;
+		border-radius: 0.5rem;
+	}
+
+	/* Navigation arrows for mobile */
+	.mobile-image-container button {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		background: rgba(0, 0, 0, 0.5);
+		color: white;
+		border: none;
+		padding: 0.5rem;
+		border-radius: 50%;
+		font-size: 1.125rem;
+		cursor: pointer;
+	}
+
+	.mobile-image-container button:first-of-type {
+		left: 1rem;
+	}
+
+	.mobile-image-container button:nth-of-type(2) {
+		right: 1rem;
+	}
+
+	/* Dots indicator */
+	.mobile-image-container > div:last-child {
+		display: flex;
+		justify-content: center;
+		gap: 0.5rem;
+		margin-top: 1rem;
+	}
+
+	.mobile-image-container > div:last-child button {
+		position: static;
+		transform: none;
+		background: rgba(0, 0, 0, 0.3);
+		width: 0.75rem;
+		height: 0.75rem;
+		border-radius: 50%;
+		padding: 0;
+		font-size: 0;
+	}
+
+	.mobile-image-container > div:last-child button.active {
+		background: rgba(0, 0, 0, 0.7);
+	}
+
+	/* Desktop styles (lg+ breakpoint: 1024px) */
+	@media (min-width: 1024px) {
+		.mobile-image-container {
+			display: none;
+		}
+
+		.desktop-masonry {
+			display: block;
+			columns: 2;
+			column-gap: 1rem;
+		}
+
+		.desktop-masonry img {
+			width: 100%;
+			height: auto;
+			break-inside: avoid;
+			margin-bottom: 1rem;
+			border-radius: 0.5rem;
+			object-fit: cover;
+		}
+	}
+</style>
