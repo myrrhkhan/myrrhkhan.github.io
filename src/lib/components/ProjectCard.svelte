@@ -17,14 +17,13 @@
 
 <script lang="ts">
 	import type { ProjectData } from '$lib/data/projects';
+	import ProjectContent from './ProjectContent.svelte';
 
 	interface Props {
 		project: ProjectData;
 	}
 
 	let { project }: Props = $props();
-
-	// Mobile image navigation state
 	let currentImageIndex = $state(0);
 
 	function nextImage() {
@@ -36,23 +35,17 @@
 	}
 </script>
 
-<!-- individual card -->
 <div class="scroll-snap-align-start relative min-h-screen">
-	<!-- images section -->
 	<div>
-		{#if project.images.length > 0}
-			<!-- Mobile: Single image with navigation -->
-			<div class="mobile-image-container">
+		<!-- Mobile: Single image with navigation -->
+		<div class="mobile-image-container">
+			{#if project.images.length > 0}
 				<img
 					src={project.images[currentImageIndex].src}
 					alt={project.images[currentImageIndex].alt}
 				/>
-
-				<!-- Navigation arrows (only visible on mobile) -->
 				<button onclick={prevImage}>←</button>
 				<button onclick={nextImage}>→</button>
-
-				<!-- Dots indicator -->
 				<div>
 					{#each project.images as _, index}
 						<button
@@ -61,31 +54,23 @@
 						>
 					{/each}
 				</div>
-			</div>
+			{/if}
+		</div>
 
-			<!-- Desktop: All images in masonry -->
-			<div class="desktop-masonry">
-				{#each project.images as image}
-					<img src={image.src} alt={image.alt} />
-				{/each}
+		<!-- Desktop: All images + content in masonry -->
+		<div class="desktop-masonry">
+			<div class="content-overlay">
+				<ProjectContent {project} />
 			</div>
-		{/if}
-	</div>
-	<!-- content section -->
-	<div class="grid lg:grid-cols-5 lg:gap-8">
-		<h1 class="text-2xl font-medium text-gray-900">{project.title}</h1>
-		<h3 class="mb-4 text-sm text-gray-500">{project.date}</h3>
-		<p class="mb-6 text-lg text-gray-700">{project.blurb}</p>
-		<!-- dropdown menu with summary -->
-		<!-- labels -->
-		<div class="mb-6 flex flex-wrap gap-2">
-			{#each project.labels as label}
-				<p class="justify-center rounded-full bg-gray-100 px-2 py-1 text-xs">{label}</p>
+			{#each project.images as image}
+				<img src={image.src} alt={image.alt} />
 			{/each}
 		</div>
-		{#if typeof project.projectUrl !== 'undefined'}
-			<a href={project.projectUrl}>Project Link</a>
-		{/if}
+	</div>
+
+	<!-- Mobile: Content below images -->
+	<div class="mobile-content">
+		<ProjectContent {project} />
 	</div>
 </div>
 
@@ -131,25 +116,75 @@
 		background: rgba(0, 0, 0, 0.7);
 	}
 
+	.content-overlay {
+		background: rgba(255, 255, 255, 0.95);
+		backdrop-filter: blur(8px);
+		border-radius: 1rem;
+		padding: 1.5rem;
+		break-inside: avoid;
+		margin-bottom: 1rem;
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		/* Make it take more vertical space like 2 images */
+		min-height: 400px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.content-overlay:hover {
+		background: rgba(255, 255, 255, 0.98);
+		backdrop-filter: blur(12px);
+		box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+		transform: translateY(-2px);
+	}
+
+	/* Mobile content (below images) */
+	.mobile-content {
+		padding: 2rem 1rem;
+	}
+
+	/* Hide mobile content on desktop */
+	@media (min-width: 1024px) {
+		.mobile-content {
+			display: none;
+		}
+	}
+
 	/* Desktop styles (lg+ breakpoint: 1024px) */
 	@media (min-width: 1024px) {
 		.mobile-image-container {
 			display: none;
 		}
 		.desktop-masonry {
-			display: block; /* newline */
-			columns: 4;
-			column-gap: 1rem;
-			/* column-gap: 0; */
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 1rem;
+			grid-auto-rows: minmax(150px, auto);
+		}
+		.content-overlay {
+			margin-top: 1rem;
+			grid-column: span 2; /* Spans exactly 2 columns horizontally */
+			grid-row: span 1; /* Single row height */
+			align-self: center;
+			transition: all 0.3s ease;
 		}
 
 		.desktop-masonry img {
 			width: 100%;
-			height: auto;
-			break-inside: avoid; /* avoid page break */
-			margin-bottom: 1rem;
-			border-radius: 0.5rem;
+			height: 100%;
 			object-fit: cover;
+			border-radius: 0.5rem;
+		} /* Desktop positioning over gallery
+		@media (min-width: 1024px) {
+			.content-overlay {
+				position: absolute;
+				top: 50%;
+				left: 2rem;
+				transform: translateY(-50%);
+				max-width: 800px;
+				z-index: 10;
+			}
 		}
+		*/
 	}
 </style>

@@ -16,8 +16,8 @@
 
 <div id="projects">
 	<div>
-		<h1>Projects</h1>
-		<div class="h-screen overflow-y-scroll">
+		<h1 class="m-4 text-4xl font-medium text-gray-900">My Projects</h1>
+		<div class="mx-20 h-screen overflow-x-scroll">
 			{#each displayedProjects as project}
 				<ProjectCard {project} />
 			{/each}
