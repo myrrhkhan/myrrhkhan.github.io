@@ -35,7 +35,7 @@
 	}
 </script>
 
-<div class="scroll-snap-align-start relative min-h-screen">
+<div class="project-card">
 	<div>
 		<!-- Mobile: Single image with navigation -->
 		<div class="mobile-image-container">
@@ -75,6 +75,13 @@
 </div>
 
 <style>
+	/* Old: scroll-snap-align-start */
+	.project-card {
+		min-width: 80vw; /* Make sure this isn't too large */
+		max-width: calc(100vw - 12rem);
+		flex-shrink: 0;
+		scroll-snap-align: start;
+	}
 	/* Mobile (default) styles */
 	.desktop-masonry {
 		display: none;

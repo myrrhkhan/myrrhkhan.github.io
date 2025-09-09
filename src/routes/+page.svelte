@@ -5,4 +5,4 @@
 
 <About />
 
-<Projects limit={5} />
+<Projects />
