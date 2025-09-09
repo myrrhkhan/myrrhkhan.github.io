@@ -36,12 +36,14 @@
 
 		<!-- New wrapper for arrows + container -->
 		<div class="projects-wrapper">
-			<button class="nav-arrow nav-arrow-left" onclick={prevProject}>←</button>
 			<div class="projects-container" bind:this={projectsContainer}>
 				{#each projects as project}
 					<ProjectCard {project} />
 				{/each}
 			</div>
+		</div>
+		<div class="mt-4 justify-center gap-4 pb-8">
+			<button class="nav-arrow nav-arrow-left" onclick={prevProject}>←</button>
 			<button class="nav-arrow nav-arrow-right" onclick={nextProject}>→</button>
 		</div>
 	</div>
