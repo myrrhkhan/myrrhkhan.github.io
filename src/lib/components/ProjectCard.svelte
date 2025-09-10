@@ -25,6 +25,7 @@
 
 	let { project }: Props = $props();
 	let currentImageIndex = $state(0);
+	let showModal = $state(false);
 
 	function nextImage() {
 		currentImageIndex = (currentImageIndex + 1) % project.images.length;
@@ -33,7 +34,33 @@
 	function prevImage() {
 		currentImageIndex = currentImageIndex === 0 ? project.images.length - 1 : currentImageIndex - 1;
 	}
+
+	function openModal() {
+		showModal = true;
+		document.body.style.overflow = 'hidden'; // Prevent background scrolling
+	}
+
+	function closeModal() {
+		showModal = false;
+		document.body.style.overflow = ''; // Restore scrolling
+	}
+
+	function handleModalClick(event: MouseEvent) {
+		// Close modal if clicking the backdrop (not the content)
+		if (event.target === event.currentTarget) {
+			closeModal();
+		}
+	}
+
+	// Close modal on Escape key
+	function handleKeydown(event: KeyboardEvent) {
+		if (event.key === 'Escape' && showModal) {
+			closeModal();
+		}
+	}
 </script>
+
+<svelte:window on:keydown={handleKeydown} />
 
 <div class="project-card">
 	<div>
@@ -59,7 +86,7 @@
 
 		<!-- Desktop: All images + content in masonry -->
 		<div class="desktop-masonry">
-			<div class="content-overlay">
+			<div class="content-overlay" onclick={openModal}>
 				<ProjectContent {project} />
 			</div>
 			{#each project.images as image}
@@ -71,31 +98,65 @@
 	<!-- Mobile: Content below images -->
 	<div class="mobile-content">
 		<ProjectContent {project} />
+		<button class="read-more-btn" onclick={openModal}>Read More</button>
 	</div>
 </div>
 
+<!-- Modal -->
+{#if showModal}
+	<div class="modal-backdrop" onclick={handleModalClick}>
+		<div class="modal-content" class:modal-animate={showModal}>
+			<button class="modal-close" onclick={closeModal}>×</button>
+			<div class="modal-inner">
+				<h2 class="modal-title">{project.title}</h2>
+				<p class="modal-date">{project.date}</p>
+				<div class="modal-labels">
+					{#each project.labels as label}
+						<span class="modal-label">{label}</span>
+					{/each}
+				</div>
+
+				<div class="modal-summary">
+					<h3>Summary</h3>
+					<p>{project.summary}</p>
+				</div>
+
+				{#if project.longerNarrative}
+					<div class="modal-narrative">
+						<h3>Full Story</h3>
+						{#each project.longerNarrative.split('\n') as paragraph}
+							{#if paragraph.trim()}
+								<p>{paragraph}</p>
+							{/if}
+						{/each}
+					</div>
+				{/if}
+
+				{#if project.projectUrl}
+					<a href={project.projectUrl} target="_blank" rel="noopener noreferrer" class="modal-link">
+						View Project →
+					</a>
+				{/if}
+			</div>
+		</div>
+	</div>
+{/if}
+
 <style>
-	/* Old: scroll-snap-align-start */
+	/* Existing styles... */
 	.project-card {
-		min-width: 80vw; /* Make sure this isn't too large */
+		min-width: 80vw;
 		max-width: calc(100vw - 12rem);
 		flex-shrink: 0;
 		scroll-snap-align: start;
 	}
-	/* Mobile (default) styles */
+
 	.desktop-masonry {
 		display: none;
 	}
 
 	.mobile-image-container {
 		position: relative;
-		/* 
-			this means it starts in its normal position, 
-			then additional attributes like, left, etc. 
-			move it from that position
-			we're not doing anything with that though so idk why
-		 */
-		/* equivalent of \n: newline */
 		display: block;
 	}
 
@@ -104,11 +165,10 @@
 		height: auto;
 		aspect-ratio: 4/3;
 		object-fit: cover;
-		border-radius: 0.5rem; /* rounded corners */
+		border-radius: 0.5rem;
 	}
 
 	.mobile-image-container > div:last-child button {
-		/* buttons in last div */
 		position: static;
 		transform: none;
 		background: rgba(0, 0, 0, 0.3);
@@ -131,23 +191,168 @@
 		break-inside: avoid;
 		margin-bottom: 1rem;
 		border: 1px solid rgba(0, 0, 0, 0.1);
-		/* Make it take more vertical space like 2 images */
 		min-height: 400px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		cursor: pointer;
+		transition: all 0.3s ease;
 	}
 
 	.content-overlay:hover {
 		background: rgba(255, 255, 255, 0.98);
 		backdrop-filter: blur(12px);
 		box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-		transform: translateY(-2px);
+		transform: translateY(-2px) scale(1.02);
 	}
 
-	/* Mobile content (below images) */
 	.mobile-content {
 		padding: 2rem 1rem;
+	}
+
+	.read-more-btn {
+		background: #3b82f6;
+		color: white;
+		border: none;
+		padding: 0.75rem 1.5rem;
+		border-radius: 0.5rem;
+		font-weight: 500;
+		cursor: pointer;
+		margin-top: 1rem;
+		transition: background 0.2s ease;
+	}
+
+	.read-more-btn:hover {
+		background: #2563eb;
+	}
+
+	/* Modal styles */
+	.modal-backdrop {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.8);
+		backdrop-filter: blur(4px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 1000;
+		padding: 1rem;
+	}
+
+	.modal-content {
+		background: white;
+		border-radius: 1rem;
+		max-width: 90vw;
+		max-height: 90vh;
+		overflow-y: auto;
+		position: relative;
+		transform: scale(0.8) rotateY(-180deg);
+		opacity: 0;
+		transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+	}
+
+	.modal-animate {
+		transform: scale(1) rotateY(0deg);
+		opacity: 1;
+	}
+
+	.modal-close {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		background: none;
+		border: none;
+		font-size: 2rem;
+		cursor: pointer;
+		color: #666;
+		z-index: 1001;
+		width: 3rem;
+		height: 3rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		transition: all 0.2s ease;
+	}
+
+	.modal-close:hover {
+		background: #f3f4f6;
+		color: #000;
+	}
+
+	.modal-inner {
+		padding: 2rem;
+		max-width: 800px;
+	}
+
+	.modal-title {
+		font-size: 2rem;
+		font-weight: 600;
+		color: #1f2937;
+		margin-bottom: 0.5rem;
+	}
+
+	.modal-date {
+		color: #6b7280;
+		font-size: 1.1rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.modal-labels {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 2rem;
+	}
+
+	.modal-label {
+		background: #f3f4f6;
+		color: #374151;
+		padding: 0.25rem 0.75rem;
+		border-radius: 1rem;
+		font-size: 0.875rem;
+		font-weight: 500;
+	}
+
+	.modal-summary {
+		margin-bottom: 2rem;
+	}
+
+	.modal-summary h3,
+	.modal-narrative h3 {
+		font-size: 1.25rem;
+		font-weight: 600;
+		color: #1f2937;
+		margin-bottom: 1rem;
+	}
+
+	.modal-summary p,
+	.modal-narrative p {
+		color: #374151;
+		line-height: 1.6;
+		margin-bottom: 1rem;
+	}
+
+	.modal-narrative {
+		margin-bottom: 2rem;
+	}
+
+	.modal-link {
+		display: inline-block;
+		background: #3b82f6;
+		color: white;
+		text-decoration: none;
+		padding: 0.75rem 1.5rem;
+		border-radius: 0.5rem;
+		font-weight: 500;
+		transition: background 0.2s ease;
+	}
+
+	.modal-link:hover {
+		background: #2563eb;
 	}
 
 	/* Hide mobile content on desktop */
@@ -155,9 +360,13 @@
 		.mobile-content {
 			display: none;
 		}
+
+		.modal-content {
+			max-width: 70vw;
+		}
 	}
 
-	/* Desktop styles (lg+ breakpoint: 1024px) */
+	/* Desktop styles */
 	@media (min-width: 1024px) {
 		.mobile-image-container {
 			display: none;
@@ -170,8 +379,8 @@
 		}
 		.content-overlay {
 			margin-top: 1rem;
-			grid-column: span 2; /* Spans exactly 2 columns horizontally */
-			grid-row: span 1; /* Single row height */
+			grid-column: span 2;
+			grid-row: span 1;
 			align-self: center;
 			transition: all 0.3s ease;
 		}
@@ -181,17 +390,28 @@
 			height: 100%;
 			object-fit: cover;
 			border-radius: 0.5rem;
-		} /* Desktop positioning over gallery
-		@media (min-width: 1024px) {
-			.content-overlay {
-				position: absolute;
-				top: 50%;
-				left: 2rem;
-				transform: translateY(-50%);
-				max-width: 800px;
-				z-index: 10;
-			}
 		}
-		*/
+	}
+
+	/* Mobile modal adjustments */
+	@media (max-width: 1023px) {
+		.modal-backdrop {
+			padding: 0;
+		}
+
+		.modal-content {
+			max-width: 100vw;
+			max-height: 100vh;
+			border-radius: 0;
+			transform: scale(0.9) translateY(100px);
+		}
+
+		.modal-animate {
+			transform: scale(1) translateY(0);
+		}
+
+		.modal-inner {
+			padding: 1.5rem;
+		}
 	}
 </style>

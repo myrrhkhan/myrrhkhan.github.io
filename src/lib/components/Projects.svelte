@@ -31,14 +31,14 @@
 
 <div id="projects">
 	<div>
-		<!-- Remove the centered arrows div -->
-		<div class="mt-4 justify-center gap-4 pb-8">
-			<h1 class="m-4 text-4xl font-medium text-gray-900">My Projects</h1>
+		<!-- Title with arrows on either side -->
+		<div class="title-section">
 			<button class="nav-arrow nav-arrow-left" onclick={prevProject}>←</button>
+			<h1 class="text-4xl font-medium text-gray-900">My Projects</h1>
 			<button class="nav-arrow nav-arrow-right" onclick={nextProject}>→</button>
 		</div>
 
-		<!-- New wrapper for arrows + container -->
+		<!-- Projects container -->
 		<div class="projects-wrapper">
 			<div class="projects-container" bind:this={projectsContainer}>
 				{#each projects as project}
@@ -50,10 +50,18 @@
 </div>
 
 <style>
+	.title-section {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 2rem;
+		margin: 2rem 0;
+		padding-bottom: 2rem;
+	}
+
 	.projects-wrapper {
 		display: flex;
 		align-items: center;
-		gap: 2rem;
 		height: 100vh;
 	}
 
@@ -61,7 +69,7 @@
 		display: flex;
 		overflow-x: auto;
 		scroll-snap-type: x mandatory;
-		flex: 1; /* Takes remaining space between arrows */
+		width: 100%;
 		height: 100vh;
 		gap: 2rem;
 		padding: 0 2rem;
@@ -75,7 +83,7 @@
 		border-radius: 50%;
 		font-size: 1.5rem;
 		cursor: pointer;
-		flex-shrink: 0; /* Prevents arrows from shrinking */
+		flex-shrink: 0;
 		z-index: 10;
 	}
 
