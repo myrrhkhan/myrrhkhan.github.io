@@ -31,8 +31,12 @@
 
 <div id="projects">
 	<div>
-		<h1 class="m-4 text-4xl font-medium text-gray-900">My Projects</h1>
 		<!-- Remove the centered arrows div -->
+		<div class="mt-4 justify-center gap-4 pb-8">
+			<h1 class="m-4 text-4xl font-medium text-gray-900">My Projects</h1>
+			<button class="nav-arrow nav-arrow-left" onclick={prevProject}>←</button>
+			<button class="nav-arrow nav-arrow-right" onclick={nextProject}>→</button>
+		</div>
 
 		<!-- New wrapper for arrows + container -->
 		<div class="projects-wrapper">
@@ -41,10 +45,6 @@
 					<ProjectCard {project} />
 				{/each}
 			</div>
-		</div>
-		<div class="mt-4 justify-center gap-4 pb-8">
-			<button class="nav-arrow nav-arrow-left" onclick={prevProject}>←</button>
-			<button class="nav-arrow nav-arrow-right" onclick={nextProject}>→</button>
 		</div>
 	</div>
 </div>
