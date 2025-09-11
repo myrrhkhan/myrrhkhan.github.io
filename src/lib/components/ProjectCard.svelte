@@ -249,11 +249,19 @@
 		max-height: 90vh;
 		overflow-y: auto;
 		position: relative;
-		transform: scale(0.8) rotateY(-180deg);
-		opacity: 0;
-		transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+		animation: modalEnter 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 	}
 
+	@keyframes modalEnter {
+		from {
+			transform: scale(0.8) rotateY(-180deg);
+			opacity: 0;
+		}
+		to {
+			transform: scale(1) rotateY(0deg);
+			opacity: 1;
+		}
+	}
 	.modal-animate {
 		transform: scale(1) rotateY(0deg);
 		opacity: 1;
