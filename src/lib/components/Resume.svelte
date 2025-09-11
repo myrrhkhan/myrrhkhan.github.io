@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { base } from '$app/paths';
+
 	function download(url: string) {
 		const a = document.createElement('a');
 		a.href = url;
@@ -29,7 +31,7 @@
 		</p>
 	</div>
 	<div class="resume_box">
-		<button type="submit" style="width: 40%;" onclick={() => download('resumes/resume.pdf')}
+		<button type="submit" style="width: 40%;" onclick={() => download('{base}/resumes/resume.pdf')}
 			>Download!</button
 		>
 		<!-- <object data="resume.pdf" type="application/pdf" width="80%" height="1000px">
@@ -39,13 +41,13 @@
 			title="resume preview"
 			width="80%"
 			height="1000px"
-			src="/resumes/resume.pdf"
+			src="{base}/resumes/resume.pdf"
 			style="border: none;"
 			loading="lazy"
 		>
 			<p>
 				Your browser doesn't support PDF preview.
-				<a href="/resumes/resume.pdf" target="_blank" download> Download the resume here </a>
+				<a href="{base}/resumes/resume.pdf" target="_blank" download> Download the resume here </a>
 			</p>
 		</iframe>
 	</div>

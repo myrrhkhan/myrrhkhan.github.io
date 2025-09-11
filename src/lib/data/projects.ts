@@ -1,3 +1,5 @@
+import { assets, base } from '$app/paths';
+
 export interface ProjectData {
 	title: string;
 	date: string;
@@ -25,48 +27,48 @@ export const projects: ProjectData[] = [
 		summary: '',
 		images: [
 			{
-				src: '/images/iqp/IMG_4670.jpeg',
+				src: `${base}/images/iqp/IMG_4670.jpeg`,
 				alt: 'Meeting community members at an artisinal market'
 			},
 
 			{
-				src: '/images/iqp/20250114_160941833_iOS.jpg',
+				src: `${base}/images/iqp/20250114_160941833_iOS.jpg`,
 				alt: 'Milla de Oro'
 			},
 			{
-				src: '/images/iqp/20250122_225751000_iOS.jpg',
+				src: `${base}/images/iqp/20250122_225751000_iOS.jpg`,
 				alt: 'Meeting with Doña Ana and her home limber business'
 			},
 			{
-				src: '/images/iqp/20250210_150019110_iOS.jpg',
+				src: `${base}/images/iqp/20250210_150019110_iOS.jpg`,
 				alt: 'Flyers'
 			},
 			{
-				src: '/images/iqp/20250210_154703877_iOS.jpg',
+				src: `${base}/images/iqp/20250210_154703877_iOS.jpg`,
 				alt: 'Talking to corporations'
 			},
 			{
-				src: '/images/iqp/20250210_173259632_iOS.jpg',
+				src: `${base}/images/iqp/20250210_173259632_iOS.jpg`,
 				alt: 'Talking to a business'
 			},
 			{
-				src: '/images/iqp/20250214_192558151_iOS.jpg',
+				src: `${base}/images/iqp/20250214_192558151_iOS.jpg`,
 				alt: 'Pitching to our middleman'
 			},
 			{
-				src: '/images/iqp/20250227_200739046_iOS.jpg',
+				src: `${base}/images/iqp/20250227_200739046_iOS.jpg`,
 				alt: 'Bike tour'
 			},
 			{
-				src: '/images/iqp/20250304_201444000_iOS.jpg',
+				src: `${base}/images/iqp/20250304_201444000_iOS.jpg`,
 				alt: 'Final presentation at ENLACE'
 			},
 			{
-				src: '/images/iqp/20250304_202013000_iOS.jpg',
+				src: `${base}/images/iqp/20250304_202013000_iOS.jpg`,
 				alt: 'Final presentation 2'
 			},
 			{
-				src: '/images/iqp/20250304_220938296_iOS.jpg',
+				src: `${base}/images/iqp/20250304_220938296_iOS.jpg`,
 				alt: 'Final presentations with the rest of our WPI IQP cohort at the La Goyco community center'
 			}
 		],
@@ -112,47 +114,47 @@ I enabled communication between the UAV and the UGV via two ESP-32 microcontroll
 We presented our project at Draper's annual Capstone Symposium and won first place. We experienced many obstacles, including building the UAV, ensuring communication was synced properly, and designing the landing mechanism. We later learned that the project almost didn't happen because of concerns that it would be too difficult for students, so to overcome these hurdles and win first place felt incredibly accomplishing.`,
 		images: [
 			{
-				src: '/images/uav-ugv/draperAward.jpg',
+				src: `${base}/images/uav-ugv/draperAward.jpg`,
 				alt: "Our poster and UAV-UGV system after presenting at Draper's office in Cambridge"
 			},
 			{
-				src: '/images/uav-ugv/DSC_0029.JPG',
+				src: `${base}/images/uav-ugv/DSC_0029.JPG`,
 				alt: 'Our UAV flying, underside'
 			},
 			{
-				src: '/images/uav-ugv/DSC_0038.JPG',
+				src: `${base}/images/uav-ugv/DSC_0038.JPG`,
 				alt: 'UAV flying in woods'
 			},
 			{
-				src: '/images/uav-ugv/DSC_0040.JPG',
+				src: `${base}/images/uav-ugv/DSC_0040.JPG`,
 				alt: 'UAV landing onto UGV'
 			},
 			{
-				src: '/images/uav-ugv/DSC_0051.JPG',
+				src: `${base}/images/uav-ugv/DSC_0051.JPG`,
 				alt: 'close-up of UAV flying in woods, with AprilTag visible'
 			},
 			{
-				src: '/images/uav-ugv/DSC_0070-2.JPG',
+				src: `${base}/images/uav-ugv/DSC_0070-2.JPG`,
 				alt: 'UAV on top of UGV, on top of some rocks'
 			},
 			{
-				src: '/images/uav-ugv/DSC_0070.JPG',
+				src: `${base}/images/uav-ugv/DSC_0070.JPG`,
 				alt: 'UAV against white background'
 			},
 			{
-				src: '/images/uav-ugv/DSC_0076.JPG',
+				src: `${base}/images/uav-ugv/DSC_0076.JPG`,
 				alt: 'UGV and AprilTag on white background'
 			},
 			{
-				src: '/images/uav-ugv/DSC_0093.JPG',
+				src: `${base}/images/uav-ugv/DSC_0093.JPG`,
 				alt: 'UAV flying in front of stones'
 			},
 			{
-				src: '/images/uav-ugv/DSC_0097.JPG',
+				src: `${base}/images/uav-ugv/DSC_0097.JPG`,
 				alt: 'UAV flying in front of drainage pipe'
 			},
 			{
-				src: '/images/uav-ugv/DSC_0114.JPG',
+				src: `${base}/images/uav-ugv/DSC_0114.JPG`,
 				alt: 'UAV perched atop a rock'
 			}
 		],
@@ -182,15 +184,15 @@ Though I had zero experience with any of these languages and frameworks I used, 
 The entire project took me two days to complete, winning me an Honorable Mention (and being the only winner who worked solo). I won a 12-pack of Celsius energy drinks, which I happily distributed to random people.`,
 		images: [
 			{
-				src: '/images/violet/violet-demo.png',
+				src: `${base}/images/violet/violet-demo.png`,
 				alt: 'Violet app showing handwriting input and converted text output'
 			},
 			{
-				src: '/images/violet/hackathon-sticker.jpg',
+				src: `${base}/images/violet/hackathon-sticker.jpg`,
 				alt: 'Photo from my first night at the hackathon'
 			},
 			{
-				src: '/images/violet/rust-code.jpg',
+				src: `${base}/images/violet/rust-code.jpg`,
 				alt: 'Some of the code I was writing during the hackathon'
 			}
 		],

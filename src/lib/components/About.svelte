@@ -2,6 +2,10 @@
 	mt-36: margin 36
 	px py pb are padding
 -->
+<script>
+	import { base } from '$app/paths';
+</script>
+
 <div class="px-8 py-16 sm:py-20">
 	<h1 class="text-3xl font-medium lg:text-[10rem]">I'm Myrrh</h1>
 	<h3 class="text-xl font-medium">(pronounced "Mir", he/him/his)</h3>
@@ -15,7 +19,7 @@
 							class="relative z-10 mx-auto h-auto w-full max-w-sm rounded-t-full rounded-b-full shadow-lg"
 							width={1440}
 							height={1800}
-							src="/images/headshots/cinque-terre.JPG"
+							src="{base}/images/headshots/cinque-terre.JPG"
 							alt="Portrait of myself in Cinque Terre, Italy"
 						/>
 					</div>
