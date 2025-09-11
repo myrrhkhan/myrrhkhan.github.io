@@ -20,24 +20,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'yarn'
-          
+
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-        
+
       - name: Build
         run: yarn build
         env:
           NODE_ENV: production
-          
+
       - name: Setup Pages
         uses: actions/configure-pages@v3
-        
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
@@ -53,11 +53,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-
-// 4. Add to package.json scripts
-{
-  "scripts": {
-    "build": "vite build",
-    "deploy": "yarn build && touch build/.nojekyll"
-  }
-}
