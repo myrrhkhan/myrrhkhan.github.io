@@ -15,7 +15,7 @@
 							class="relative z-10 mx-auto h-auto w-full max-w-sm rounded-t-full rounded-b-full shadow-lg"
 							width={1440}
 							height={1800}
-							src="/images/headshots/cinque terre.JPG"
+							src="/images/headshots/cinque-terre.JPG"
 							alt="Portrait of myself in Cinque Terre, Italy"
 						/>
 					</div>
