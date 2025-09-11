@@ -31,25 +31,25 @@
 		</p>
 	</div>
 	<div class="resume_box">
-		<button type="submit" style="width: 40%;" onclick={() => download('{base}/resumes/resume.pdf')}
-			>Download!</button
+		<button
+			type="button"
+			style="width: 40%;"
+			onclick={() => download(`${base}/resumes/resume.pdf`)}
 		>
+			Download!
+		</button>
 		<!-- <object data="resume.pdf" type="application/pdf" width="80%" height="1000px">
         alt : <a href="resume.pdf">resume.pdf</a>
     </object> -->
+
 		<iframe
 			title="resume preview"
 			width="80%"
 			height="1000px"
-			src="{base}/resumes/resume.pdf"
+			src={`${base}/resumes/resume.pdf`}
 			style="border: none;"
 			loading="lazy"
-		>
-			<p>
-				Your browser doesn't support PDF preview.
-				<a href="{base}/resumes/resume.pdf" target="_blank" download> Download the resume here </a>
-			</p>
-		</iframe>
+		/>
 	</div>
 </div>
 
