@@ -7,8 +7,20 @@ const config = {
 	// Consult https://svelte.dev/docs/kit/integrations
 	// for more information about preprocessors
 	preprocess: [vitePreprocess(), mdsvex()],
-	kit: { adapter: adapter() },
-	extensions: ['.svelte', '.svx']
+
+	kit: {
+		adapter: adapter({
+			pages: 'build',
+			assets: 'build',
+			fallback: undefined,
+			precompress: false,
+			strict: true
+		}),
+		paths: {
+			base: process.env.NODE_ENV === 'production' ? '/myrrhkhan.github.io' : ''
+		},
+		extensions: ['.svelte', '.svx']
+	}
 };
 
 export default config;
